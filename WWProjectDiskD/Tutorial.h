@@ -1,15 +1,35 @@
-#pragma once
 
+// Fills the given 2D array representing the player's game board with default values.
 void fillPlayerArr(char field[6][6]);
+
+// Prints the current state of the given game board.
 void WritePlayerField(const char field[6][6]);
+
+// Places destroyer ships on the player's board.
 void PlaceDestroyers(int destroyer, int letterKey, int numKey, char field[6][6]);
+
+// Places destroyer ships on the bot's board.
 void PlaceDestroyersBot(int destroyer, char field[6][6]);
+
+// Marks the surrounding cells of a ship to prevent overlapping placements.
 void MarkSurroundings(int letterKey, int numKey, char pole[6][6]);
+
+// Handles the player's move, including attacking the bot's ships.
 void PlayerMove(char field[6][6], char field2[6][6], int& countOfMoves, int& botDestroyers, char viewField[6][6], int& letterKey, int& numKey);
+
+// Handles the bot' move, including attacking the player's ships.
 void BotMove(char field[6][6], int& countOfMoves, int& playerDestroyers);
+
+// Executes the tutorial vs bot logic for a single turn in the game.
 bool GameMode(char field[6][6], char field2[6][6], int& countOfMoves, int& playerDestroyers, int& botDestroyers, char viewField[6][6], int letterKey, int numKey);
+
+// Reads and validates the row input for placing a ship.
 void Row(int& letterKey);
+
+// Reads and validates the column input for placing a ship.
 void Column(int& numKey);
+
+// Initializes and manages the tutorial vs bot game mode.
 void Tutorial();
 
 
@@ -116,6 +136,7 @@ void PlaceDestroyers(int destroyer, int letterKey, int numKey, char field[6][6])
 		MarkSurroundings(letterKey, numKey, field);
 
 		WritePlayerField(field);
+		cout << "Great. U need to place " << destroyer << " destroyers ships " << endl;
 	}
 }
 

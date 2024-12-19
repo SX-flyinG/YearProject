@@ -1,21 +1,53 @@
-#pragma once
 
+// Fills the given 2D array representing the player's game board with default values.
 void fillArray(char polePlayer[11][11]);
+
+// Prints the current state of the given game board.
 void PrintPole(char pole[11][11]);
+
+// Places destroyer ships on the player's board.
 void PlaceDestroyers(int& letterKey, int& numKey, int destroyer, char polePlayer[11][11]);
+
+// Places a cruiser ship with advanced logic.
 void CruiserHard(int letterKey, int numKey, int wayKey, int cruiser, char pole[11][11], int& countOfMatch, int& countOfWins);
+
+// Places a cruiser ship for the bot with advanced logic.
 void PlaceCruiserBot(int cruiser, char field[11][11], int oneTry);
+
+// Places a submarine ship with advanced logic.
 void SubmarineHard(int letterKey, int numKey, int wayKey, int submarine, char pole[11][11], int& countOfMatch, int& countOfWins);
+
+// Places a submarine ship for the bot with advanced logic.
 void PlaceSubmarineBot(int submarine, char field[11][11], int oneTry);
+
+// Places a battleship with advanced logic.
 void BattleShipHard(int letterKey, int numKey, int wayKey, int battleShip, char pole[11][11], int& countOfMatch, int& countOfWins);
+
+// Places a battleship for the bot with advanced logic.
 void PlaceBattleshipBot(int battleShip, char field[11][11], int oneTry);
+
+// Marks the surrounding cells of a ship to prevent overlapping placements.
 void MarkSurroundings(int letterKey, int numKey, char pole[11][11]);
+
+// Reads and validates the row input for placing a ship.
 void WriteRow(int& letterKey);
+
+// Reads and validates the column input for placing a ship.
 void WriteColumn(int& numKey);
+
+// Handles the player's move, including attacking the opponent's ships.
 void PlayerMove(char field[11][11], char field2[11][11], char viewField[11][11], int& countOfMoves, int& switchSides, int& countOfShips, int letterKey, int numKey);
+
+// Places ships on the bot's game board.
 void BotPlacing(char poleBot[11][11]);
+
+// Executes the hard difficulty bot's logic for a single turn in the game.
 bool HardGameBot(char mainField[11][11], char rivalField[11][11], char viewRivalField[11][11], char viewMainField[11][11], int& swichSides, int& countOfMoves, int& countOfShipsPL1, int& countOfShipsPL2, int letterKey, int numKey, int& countOfWins);
+
+// Initializes and manages the hard bot game mode.
 void HardBot(int& countOfGames, int& countOfWins);
+
+// Executes the hard bot's move logic, including attacking the player's ships.
 void HardBotMove(char field[11][11], char viewField[11][11], int& countOfMoves, int& swichSides, int& countOfShipsPL1);
 
 void CruiserHard(int letterKey, int numKey, int wayKey, int cruiser, char pole[11][11], int& countOfMatch, int& countOfWins) {

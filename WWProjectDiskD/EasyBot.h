@@ -1,19 +1,44 @@
-
+// Fills the given 2D array representing the player's game board with default values.
 void fillArray(char polePlayer[11][11]);
-void PrintPole(char pole[11][11]);
-void PlaceDestroyers(int& letterKey, int& numKey, int destroyer, char polePlayer[11][11]);
-void cruiser(int letterKey, int numKey, int wayKey, int cruiser, char pole[11][11], int& countOfMatch, int& countOfWins);
-void submarine(int letterKey, int numKey, int wayKey, int submarine, char pole[11][11], int& countOfMatch, int& countOfWins);
-void Battleship(int letterKey, int numKey, int wayKey, int battleShip, char pole[11][11], int& countOfMatch, int& countOfWins);
-void MarkSurroundings(int letterKey, int numKey, char pole[11][11]);
-void WriteRow(int& letterKey);
-void WriteColumn(int& numKey);
-void PlayerMove(char field[11][11], char field2[11][11], char viewField[11][11], int& countOfMoves, int& switchSides, int& countOfShips, int letterKey, int numKey);
-void BotPlacing(char poleBot[11][11]);
-bool EasyGameBot(char mainField[11][11], char rivalField[11][11], char viewRivalField[11][11], char viewMainField[11][11], int& swichSides, int& countOfMoves, int& countOfShipsPL1, int& countOfShipsPL2, int letterKey, int numKey, int& countOfWins);
-void EasyBot(int& countOfGames, int& countOfWins);
-void EasyBotMove(char field[11][11], char viewField[11][11], int& countOfMoves, int& swichSides, int& countOfShipsPL1);
 
+// Prints the current state of the given game board.
+void PrintPole(char pole[11][11]);
+
+// Places destroyer ships on the player's board.
+void PlaceDestroyers(int& letterKey, int& numKey, int destroyer, char polePlayer[11][11]);
+
+// Places a cruiser ship on the player's board.
+void cruiser(int letterKey, int numKey, int wayKey, int cruiser, char pole[11][11], int& countOfMatch, int& countOfWins);
+
+// Places a submarine ship on the player's board.
+void submarine(int letterKey, int numKey, int wayKey, int submarine, char pole[11][11], int& countOfMatch, int& countOfWins);
+
+// Places a battleship on the player's board.
+void Battleship(int letterKey, int numKey, int wayKey, int battleShip, char pole[11][11], int& countOfMatch, int& countOfWins);
+
+// Marks the surrounding cells of a ship to prevent overlapping placements.
+void MarkSurroundings(int letterKey, int numKey, char pole[11][11]);
+
+// Reads and validates the row input for placing a ship.
+void WriteRow(int& letterKey);
+
+// Reads and validates the column input for placing a ship.
+void WriteColumn(int& numKey);
+
+// Handles the player's move, including attacking the opponent's ships.
+void PlayerMove(char field[11][11], char field2[11][11], char viewField[11][11], int& countOfMoves, int& switchSides, int& countOfShips, int letterKey, int numKey);
+
+// Places ships on the bot's game board.
+void BotPlacing(char poleBot[11][11]);
+
+// Executes the easy difficulty bot's logic for a single turn in the game.
+bool EasyGameBot(char mainField[11][11], char rivalField[11][11], char viewRivalField[11][11], char viewMainField[11][11], int& swichSides, int& countOfMoves, int& countOfShipsPL1, int& countOfShipsPL2, int letterKey, int numKey, int& countOfWins);
+
+// Initializes and manages the easy bot game mode.
+void EasyBot(int& countOfGames, int& countOfWins);
+
+// Executes the easy bot's move logic, including attacking the player's ships.
+void EasyBotMove(char field[11][11], char viewField[11][11], int& countOfMoves, int& swichSides, int& countOfShipsPL1);
 
 
 

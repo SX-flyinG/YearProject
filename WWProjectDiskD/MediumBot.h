@@ -1,22 +1,53 @@
-
+// Fills the given 2D array representing the player's game board with default values.
 void fillArray(char polePlayer[11][11]);
-void PrintPole(char pole[11][11]);
-void PlaceDestroyers(int& letterKey, int& numKey, int destroyer, char polePlayer[11][11]);
-void Cruiser(int letterKey, int numKey, int wayKey, int cruiser, char pole[11][11], int& countOfMatch, int& countOfWins);
-void PlaceCruiserBot(int cruiser, char field[11][11] , int oneTry);
-void Submarine(int letterKey, int numKey, int wayKey, int submarine, char pole[11][11], int& countOfMatch, int& countOfWins);
-void PlaceSubmarineBot(int submarine , char field[11][11] ,int oneTry);
-void BattleShip(int letterKey, int numKey, int wayKey, int battleShip, char pole[11][11], int& countOfMatch, int& countOfWins);
-void PlaceBattleshipBot(int battleShip, char field[11][11] , int oneTry);
-void MarkSurroundings(int letterKey, int numKey, char pole[11][11]);
-void WriteRow(int& letterKey);
-void WriteColumn(int& numKey);
-void PlayerMove(char field[11][11], char field2[11][11], char viewField[11][11], int& countOfMoves, int& switchSides, int& countOfShips, int letterKey, int numKey);
-void BotPlacing(char poleBot[11][11]);
-bool GameBot(char mainField[11][11], char rivalField[11][11], char viewRivalField[11][11],char viewMainField[11][11], int& swichSides, int& countOfMoves, int& countOfShipsPL1, int& countOfShipsPL2, int letterKey, int numKey, int& countOfWins);
-void MediumBot(int& countOfGames, int& countOfWins);
-void BotMove(char field[11][11], char viewField[11][11], int& countOfMoves, int& swichSides, int& countOfShipsPL1);
 
+// Prints the current state of the given game board.
+void PrintPole(char pole[11][11]);
+
+// Places destroyer ships on the player's board.
+void PlaceDestroyers(int& letterKey, int& numKey, int destroyer, char polePlayer[11][11]);
+
+// Places a cruiser ship on the player's board with medium difficulty logic.
+void Cruiser(int letterKey, int numKey, int wayKey, int cruiser, char pole[11][11], int& countOfMatch, int& countOfWins);
+
+// Places a cruiser ship for the bot with medium difficulty logic.
+void PlaceCruiserBot(int cruiser, char field[11][11], int oneTry);
+
+// Places a submarine ship on the player's board with medium difficulty logic.
+void Submarine(int letterKey, int numKey, int wayKey, int submarine, char pole[11][11], int& countOfMatch, int& countOfWins);
+
+// Places a submarine ship for the bot with medium difficulty logic.
+void PlaceSubmarineBot(int submarine, char field[11][11], int oneTry);
+
+// Places a battleship on the player's board with medium difficulty logic.
+void BattleShip(int letterKey, int numKey, int wayKey, int battleShip, char pole[11][11], int& countOfMatch, int& countOfWins);
+
+// Places a battleship for the bot with medium difficulty logic.
+void PlaceBattleshipBot(int battleShip, char field[11][11], int oneTry);
+
+// Marks the surrounding cells of a ship to prevent overlapping placements.
+void MarkSurroundings(int letterKey, int numKey, char pole[11][11]);
+
+// Reads and validates the row input for placing a ship.
+void WriteRow(int& letterKey);
+
+// Reads and validates the column input for placing a ship.
+void WriteColumn(int& numKey);
+
+// Handles the player's move, including attacking the opponent's ships.
+void PlayerMove(char field[11][11], char field2[11][11], char viewField[11][11], int& countOfMoves, int& switchSides, int& countOfShips, int letterKey, int numKey);
+
+// Places ships on the bot's game board.
+void BotPlacing(char poleBot[11][11]);
+
+// Executes the medium difficulty bot's logic for a single turn in the game.
+bool GameBot(char mainField[11][11], char rivalField[11][11], char viewRivalField[11][11], char viewMainField[11][11], int& swichSides, int& countOfMoves, int& countOfShipsPL1, int& countOfShipsPL2, int letterKey, int numKey, int& countOfWins);
+
+// Initializes and manages the medium bot game mode.
+void MediumBot(int& countOfGames, int& countOfWins);
+
+// Executes the medium bot's move logic, including attacking the player's ships.
+void BotMove(char field[11][11], char viewField[11][11], int& countOfMoves, int& swichSides, int& countOfShipsPL1);
 
 
 
